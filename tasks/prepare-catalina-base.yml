@@ -65,24 +65,6 @@
       owner: "{{ tomcat_system_user }}"
       group: "{{ tomcat_system_group }}"
 
-- name: Symlink catalina script
-  file:
-    src: "{{ tomcat_catalina_home }}/bin/catalina.sh"
-    dest: "{{ tomcat_catalina_base }}/bin/catalina.sh"
-    state: link
-
-- name: Symlink startup script
-  file:
-    src: "{{ tomcat_catalina_home }}/bin/startup.sh"
-    dest: "{{ tomcat_catalina_base }}/bin/startup.sh"
-    state: link
-
-- name: Symlink shutdown script
-  file:
-    src: "{{ tomcat_catalina_home }}/bin/shutdown.sh"
-    dest: "{{ tomcat_catalina_base }}/bin/shutdown.sh"
-    state: link
-
 - name: Copy "server.xml", using the default recommended settings
   copy:
     src: server.xml
